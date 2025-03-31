@@ -38,6 +38,10 @@ MSTFLINT Package - Firmware Burning and Diagnostics Tools
 3) Installation
     a) Build the mstflint utility. This package is built using a standard
        autotools method.
+
+       To build on debian bookworm or trixie you need to install some dependencies:
+       > sudo apt-get update
+       > sudo apt-get install -y automake gettext libtool clang clang-tools g++ make zlib1g-dev libibmad-dev libibumad-dev libssl-dev
 	   
        Example: 
        > ./configure
