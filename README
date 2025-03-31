@@ -24,6 +24,31 @@ in error checking. There are no functional changes, only fixing compile errors.
 Tested with debian bookworm and trixie to flash new firmwares and do some diagnostics.
 
 
+=== Documentation is outdated ===
+
+To use the ConnectX-2 cards on debian bookworm and trixie no proprietary packages are needed.
+The information below and on other places might be outdated.
+
+The following tools are needed on debian:
+  > sudo apt update
+  > sudo apt install -y infiniband-diags rdma-core ethtool iproute2 ibutils ibverbs-providers
+
+Always use the PCEe address instead of any /dev/... device nodes, e.g.
+Get the PCI address:
+  > lspci -k -nn -d '15b3:*'
+0c:00.0 Network controller [0280]: Mellanox Technologies MT25408A0-FCC-QI ConnectX, Dual Port 40Gb/s InfiniBand / 10GigE Adapter IC with PCIe 2.0 x8 5.0GT/s Interface [15b3:673c] (rev b0)
+
+Get some info:
+  > mstflint -d 0c:00.0 q full
+  > mstflint -d 0c:00.0 hw query
+
+I'm using Network Manager (nmtui, nmcli) to manage the ip settings.
+When using infiniband mode, you should enable 'connected mode' which
+greatly improves the throughput for ip over infiniband, in my case from 3 to 12 Gbit/s.
+
+
+=== Original information (excep debian package information)  =====================
+
 1) Overview
     This package contains a burning tool and diagnostic tools for Mellanox
     manufactured HCA/NIC cards. It also provides access to the relevant source
