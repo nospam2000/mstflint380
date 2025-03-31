@@ -31,7 +31,7 @@ The information below and on other places might be outdated.
 
 The following tools are needed on debian:
   > sudo apt update
-  > sudo apt install -y infiniband-diags rdma-core ethtool iproute2 ibutils ibverbs-providers
+  > sudo apt install -y rdma-core ibutils ibverbs-providers ibsim-utils infiniband-diags opensm ethtool iproute2 perftest
 
 Always use the PCEe address instead of any /dev/... device nodes, e.g.
 Get the PCI address:
