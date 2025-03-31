@@ -47,8 +47,8 @@ fi
 
 AM_CONDITIONAL(ENABLE_INBAND, [test  "x$enable_inband" = "xyes"])
 
-CFLAGS="$CFLAGS -Werror -DMST_UL"
-CXXFLAGS="$CXXFLAGS -Werror -DMST_UL"
+CFLAGS="$CFLAGS  -DMST_UL"
+CXXFLAGS="$CXXFLAGS  -DMST_UL"
 
 AC_CONFIG_FILES( mstflint.spec )
 

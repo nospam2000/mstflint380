@@ -843,7 +843,7 @@ bool SubCommand::printBxGuids(guid_t* new_guids, guid_t* old_guids, int index, i
 
 bool SubCommand::printMacLine(guid_t* new_guids, guid_t* old_guids, int mac_index)
 {
-    printf("    "MAC_FORMAT MAC_SPACES, new_guids[mac_index].h, new_guids[mac_index].l);
+    printf("    " MAC_FORMAT MAC_SPACES, new_guids[mac_index].h, new_guids[mac_index].l);
     if (old_guids != NULL) {
         printf(MAC_FORMAT, old_guids[mac_index].h, old_guids[mac_index].l);
     } else {
@@ -1137,8 +1137,8 @@ BurnSubCommand:: BurnSubCommand()
     _flagShort = "b";
     _param = "";
     _paramExp = "None";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" -i image1.bin burn\n"
-              INDENTEX FLINT_NAME" -d "MST_DEV_EXAMPLE2" -guid 0x2c9000100d050 -i image1.bin b";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " -i image1.bin burn\n"
+              INDENTEX FLINT_NAME " -d " MST_DEV_EXAMPLE2 " -guid 0x2c9000100d050 -i image1.bin b";
     _v = Wtv_Dev_And_Img;
     _maxCmdParamNum = 0;
     _cmdType = SC_Burn;
@@ -1829,11 +1829,11 @@ bool QuerySubCommand::displayFs2Uids(const fw_info_t& fwInfo)
 }
 
 #define BASE_STR "Base"
-#define PRINT_FS3_UID(uid1, str) printf("%-16s %016"U64H_FMT_GEN"        %d        %d\n", str, uid1.uid, uid1.num_allocated, uid1.step);
+#define PRINT_FS3_UID(uid1, str) printf("%-16s %016" U64H_FMT_GEN "        %d        %d\n", str, uid1.uid, uid1.num_allocated, uid1.step);
 #define PRINT_FS3_UIDS(uid1, uid2, str) {\
-    	PRINT_FS3_UID(uid1, BASE_STR" "str":");\
+    	PRINT_FS3_UID(uid1, BASE_STR " " str ":");\
     if (uid1.uid !=  uid2.uid || uid1.num_allocated != uid2.num_allocated  || uid1.step != uid2.step) {\
-        PRINT_FS3_UID(uid2, "Orig " BASE_STR " "str":");\
+        PRINT_FS3_UID(uid2, "Orig " BASE_STR " " str ":");\
     } \
 }
 
@@ -1950,7 +1950,7 @@ QuerySubCommand:: QuerySubCommand()
     _flagShort = "q";
     _param = "[full]";
     _paramExp = "None";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" query";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " query";
     _v = Wtv_Dev_Or_Img;
     _maxCmdParamNum = 1;
     _cmdType = SC_Query;
@@ -1999,7 +1999,7 @@ VerifySubCommand:: VerifySubCommand()
     _flagShort = "v";
     _param = "[showitoc]";
     _paramExp = "None";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" v";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " v";
     _v = Wtv_Dev_Or_Img;
     _maxCmdParamNum = 1;
     _cmdType = SC_Verify;
@@ -2120,7 +2120,7 @@ BromSubCommand:: BromSubCommand()
     _flagShort = "";
     _param = "<ROM-file>";
     _paramExp = "file: The exp-ROM file.";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" brom exp-rom.rom";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " brom exp-rom.rom";
     _v = Wtv_Dev_Or_Img;
     _cmdType = SC_Brom;
     _maxCmdParamNum = 1;
@@ -2233,7 +2233,7 @@ DromSubCommand:: DromSubCommand()
     _flagShort = "";
     _param = "";
     _paramExp = "None";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" drom";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1" drom";
     _v = Wtv_Dev_Or_Img;
     _maxCmdParamNum = 0;
     _cmdType = SC_Drom;
@@ -2282,7 +2282,7 @@ RromSubCommand:: RromSubCommand()
     _flagShort = "";
     _param = "<out-file>";
     _paramExp = "file: filename to write the exp-ROM to.";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" rrom exp-rom.rom";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " rrom exp-rom.rom";
     _v = Wtv_Dev_Or_Img;
     _maxCmdParamNum = 1;
     _cmdType = SC_Rrom;
@@ -2345,7 +2345,7 @@ BbSubCommand:: BbSubCommand()
     _flagShort = "";
     _param = "";
     _paramExp = "None";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" -i image1.bin bb";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " -i image1.bin bb";
     _v = Wtv_Dev_And_Img;
     _maxCmdParamNum = 0;
     _cmdType = SC_Bb;
@@ -2417,7 +2417,7 @@ SgSubCommand:: SgSubCommand()
                 INDENTEX"the full image crc after changing the guids\n"
                 INDENTEX"num_of_guids: number of GUIDs to be allocated per physical port (FS3 Only)\n"
                 INDENTEX"step_size: step size between GUIDs (FS3 Only)";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" -guid 0x0002c9000100d050 sg";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " -guid 0x0002c9000100d050 sg";
     _v = Wtv_Dev_Or_Img;
     _maxCmdParamNum = 2;
     _cmdType = SC_Sg;
@@ -2620,7 +2620,7 @@ SmgSubCommand:: SmgSubCommand()
                 INDENTEX"step_size: step size between GUIDs";
     _example = FLINT_NAME" -i fw_image.bin -uid 0x0002c9000100d050 smg"
 #ifndef __WIN__
-    		"\n"INDENTEX FLINT_NAME" -d "MST_DEV_EXAMPLE3" -uid 0x0002c9000100d050 smg (should be used when device is idle)"
+    		"\n" INDENTEX FLINT_NAME " -d " MST_DEV_EXAMPLE3 " -uid 0x0002c9000100d050 smg (should be used when device is idle)"
 #endif
     		;
     _v = Wtv_Dev_Or_Img;
@@ -2693,7 +2693,7 @@ SetVpdSubCommand:: SetVpdSubCommand()
     _paramExp = "vpd file: bin file containing the vpd data";
     _example = FLINT_NAME" -i fw_image.bin set_vpd vpd.bin"
 #ifndef __WIN__
-    			"\n"INDENTEX FLINT_NAME" -d "MST_DEV_EXAMPLE3" -override_cache_replacement set_vpd vpd.bin (should be used when device is idle)"
+    			"\n" INDENTEX FLINT_NAME " -d " MST_DEV_EXAMPLE3 " -override_cache_replacement set_vpd vpd.bin (should be used when device is idle)"
 #endif
     			;
     _v = Wtv_Dev_Or_Img;
@@ -2741,9 +2741,9 @@ SvSubCommand:: SvSubCommand()
     _flagShort = "";
     _param = "";
     _paramExp = "None";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" -vsd VSD_STRING sv"
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " -vsd VSD_STRING sv"
 #ifndef __WIN__
-    		"\n"INDENTEX FLINT_NAME" -d "MST_DEV_EXAMPLE3" -vsd VSD_STRING -override_cache_replacement sv (should be used when device is idle)\n"
+    		"\n" INDENTEX FLINT_NAME " -d " MST_DEV_EXAMPLE3" -vsd VSD_STRING -override_cache_replacement sv (should be used when device is idle)\n"
 #endif
     		;
     _v = Wtv_Dev_Or_Img;
@@ -2799,7 +2799,7 @@ RiSubCommand:: RiSubCommand()
     _flagShort = "";
     _param = "<out-file>";
     _paramExp = "file: filename to write the image to (raw binary).";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" ri file.bin";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " ri file.bin";
     _v = Wtv_Dev;
     _maxCmdParamNum = 1;
     _cmdType = SC_Ri;
@@ -2878,7 +2878,7 @@ DcSubCommand:: DcSubCommand() {
     _param = "[out-file]";
     _paramExp = "file: (optional) filename to write the dumped configuration to. If not given, the data\n"
                 INDENTEX"is printed to screen";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" dc";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " dc";
     _v = Wtv_Dev_Or_Img;
     _maxCmdParamNum = 1;
     _cmdType = SC_Dc;
@@ -2929,7 +2929,7 @@ DhSubCommand:: DhSubCommand()
     _param = "[out-file]";
     _paramExp = "file - (optional) filename to write the dumped tracer hash file to. If not given, the data\n"
                 INDENTEX"is printed to screen";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" dh hash.csv";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " dh hash.csv";
     _v = Wtv_Dev_Or_Img;
     _maxCmdParamNum = 1;
     _cmdType = SC_Dh;
@@ -2982,7 +2982,7 @@ SetKeySubCommand:: SetKeySubCommand()
     _flagShort = "";
     _param = "[key]";
     _paramExp = "key: (optional) The new key you intend to set (in hex).";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" set_key 1234deaf5678";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " set_key 1234deaf5678";
     _v = Wtv_Dev;
     _maxCmdParamNum = 1;
     _cmdType = SC_Set_Key;
@@ -3076,7 +3076,7 @@ HwAccessSubCommand:: HwAccessSubCommand()
                 INDENTEX"                   You will be asked to type a key when you try to enable HW access.\n"
                 INDENTEX"key:               (optional) The key you intend to use for enabling the HW access.\n"
     			INDENTEX"                   Key format consists of at most 16 Hexadecimal digits.";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" hw_access enable";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " hw_access enable";
     _v = Wtv_Dev;
     _maxCmdParamNum = 2;
     _cmdType = SC_Hw_Access;
@@ -3188,7 +3188,7 @@ HwSubCommand:: HwSubCommand()
     _flagShort = "";
     _param = "query";
     _paramExp = "query";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" hw query";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " hw query";
 #endif
     _v = Wtv_Dev;
     _maxCmdParamNum = 2;
@@ -3249,15 +3249,15 @@ FlintStatus HwSubCommand::printAttr(const ext_flash_attr_t& attr) {
     if (attr.quad_en_support) {
         switch (attr.mf_get_quad_en_rc) {
             case MFE_OK:
-                printf("  "QUAD_EN_PARAM"                %d\n", attr.quad_en);
+                printf("  " QUAD_EN_PARAM "                %d\n", attr.quad_en);
                 break;
             case MFE_MISMATCH_PARAM:
-                printf("-E- There is a mismatch in the "QUAD_EN_PARAM" attribute between the flashes attached to the device\n");
+                printf("-E- There is a mismatch in the " QUAD_EN_PARAM " attribute between the flashes attached to the device\n");
                 break;
             case MFE_NOT_SUPPORTED_OPERATION:
                 break;
             default:
-                printf("Failed to get "QUAD_EN_PARAM" attribute: %s (%s)",\
+                printf("Failed to get " QUAD_EN_PARAM " attribute: %s (%s)",\
                         errno == 0 ? "" : strerror(errno), mf_err2str(attr.mf_get_quad_en_rc));
                 return FLINT_FAILED;
         }
@@ -3266,15 +3266,15 @@ FlintStatus HwSubCommand::printAttr(const ext_flash_attr_t& attr) {
     if (attr.dummy_cycles_support) {
         switch (attr.mf_get_dummy_cycles_rc) {
             case MFE_OK:
-                printf("  "DUMMY_CYCLES_PARAM"           %d\n", attr.dummy_cycles);
+                printf("  " DUMMY_CYCLES_PARAM "           %d\n", attr.dummy_cycles);
                 break;
             case MFE_MISMATCH_PARAM:
-                printf("-E- There is a mismatch in the "DUMMY_CYCLES_PARAM" attribute between the flashes attached to the device\n");
+                printf("-E- There is a mismatch in the " DUMMY_CYCLES_PARAM " attribute between the flashes attached to the device\n");
                 break;
             case MFE_NOT_SUPPORTED_OPERATION:
                 break;
             default:
-                printf("Failed to get "DUMMY_CYCLES_PARAM" attribute: %s (%s)",\
+                printf("Failed to get " DUMMY_CYCLES_PARAM " attribute: %s (%s)",\
                         errno == 0 ? "" : strerror(errno), mf_err2str(attr.mf_get_dummy_cycles_rc));
                 return FLINT_FAILED;
         }
@@ -3287,7 +3287,7 @@ FlintStatus HwSubCommand::printAttr(const ext_flash_attr_t& attr) {
             write_protect_info_t protect_info = attr.protect_info_array[bank];
             rc = attr.mf_get_write_protect_rc_array[bank];
             if (rc == MFE_OK) {
-                printf("  "FLASH_NAME"%d."WRITE_PROTECT"   ", bank);
+                printf("  " FLASH_NAME "%d." WRITE_PROTECT "   ", bank);
                 if (protect_info.sectors_num != 0) {
                     printf("%s,", (protect_info.is_bottom ? WP_BOTTOM_STR : WP_TOP_STR));
                     printf("%d-", protect_info.sectors_num);
@@ -3366,7 +3366,7 @@ EraseSubCommand:: EraseSubCommand()
     _flagShort = "e";
     _param = "<addr>";
     _paramExp = "addr - address of word in sector that you want to erase.";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" erase 0x10000";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " erase 0x10000";
     _v = Wtv_Dev;
     _maxCmdParamNum = 1;
     _cmdType = SC_Erase;
@@ -3420,7 +3420,7 @@ RwSubCommand:: RwSubCommand() {
     _flagShort = "";
     _param = "<addr>";
     _paramExp = "addr - address of word to read";
-    _example = "flint -d "MST_DEV_EXAMPLE1" rw 0x20";
+    _example = "flint -d " MST_DEV_EXAMPLE1 " rw 0x20";
     _v = Wtv_Dev_Or_Img;
     _maxCmdParamNum = 1;
     _cmdType = SC_Rw;
@@ -3478,7 +3478,7 @@ WwSubCommand:: WwSubCommand()
     _param = "<addr> <data>";
     _paramExp = "addr - address of word\n"
                 INDENTEX"data - value of word";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" ww 0x10008 0x5a445a44";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " ww 0x10008 0x5a445a44";
     _v = Wtv_Dev;
     _maxCmdParamNum = 2;
     _cmdType = SC_Ww;
@@ -3547,7 +3547,7 @@ WwneSubCommand:: WwneSubCommand()
     _param = "<addr> <data>";
     _paramExp = "addr - address of word\n"
                 INDENTEX"data - value of word";
-    _example = "flint -d "MST_DEV_EXAMPLE1" wwne 0x10008 0x5a445a44";
+    _example = "flint -d " MST_DEV_EXAMPLE1 " wwne 0x10008 0x5a445a44";
     _v = Wtv_Dev;
     _maxCmdParamNum = 2;
     _cmdType = SC_Wwne;
@@ -3613,7 +3613,7 @@ WbSubCommand:: WbSubCommand() {
     _paramExp = "data-file - file that contains the data to be written\n"
                 INDENTEX"addr - address to write the block to\n";
 
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" wb myData.bin 0x0";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " wb myData.bin 0x0";
     _v = Wtv_Dev;
     _maxCmdParamNum = 2;
     _cmdType = SC_Wb;
@@ -3686,7 +3686,7 @@ WbneSubCommand:: WbneSubCommand() {
     _paramExp = "addr - address of block\n"
                 INDENTEX"size - size of data to write in bytes\n"
                 INDENTEX"data - data to write - space seperated dwords";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" wbne 0x10000 12 0x30000 0x76800 0x5a445a44";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " wbne 0x10000 12 0x30000 0x76800 0x5a445a44";
     _v = Wtv_Dev;
     _maxCmdParamNum = -1;
     _cmdType = SC_Wbne;
@@ -3781,7 +3781,7 @@ RbSubCommand:: RbSubCommand()
                 INDENTEX"size - size of data to read in bytes\n"
                 INDENTEX"file - filename to write the block (raw binary). If not given, the data\n"
                 INDENTEX"is printed to screen";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" rb 0x10000 100 file.bin";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " rb 0x10000 100 file.bin";
     _v = Wtv_Dev_Or_Img;
     _maxCmdParamNum = 3;
     _cmdType = SC_Rb;
@@ -3879,7 +3879,7 @@ ClearSemSubCommand:: ClearSemSubCommand()
     _flagShort = "";
     _param = "";
     _paramExp = "";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" -clear_semaphore";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " -clear_semaphore";
     _v = Wtv_Dev;
     _maxCmdParamNum = 0;
     _cmdType = SC_Clear_Sem;
@@ -3949,7 +3949,7 @@ ResetCfgSubCommand:: ResetCfgSubCommand()
     _flagShort = "r";
     _param = "";
     _paramExp = "";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" reset_cfg";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " reset_cfg";
     _v = Wtv_Dev;
     _maxCmdParamNum = 0;
     _cmdType = SC_ResetCfg;
@@ -3998,7 +3998,7 @@ FiSubCommand:: FiSubCommand()
     _flagShort = "";
     _param = "";
     _paramExp = "";
-    _example = FLINT_NAME" -d "MST_DEV_EXAMPLE1" fi";
+    _example = FLINT_NAME " -d " MST_DEV_EXAMPLE1 " fi";
     _v = Wtv_Dev;
     _maxCmdParamNum = 0;
     _cmdType = SC_Fix_Img;

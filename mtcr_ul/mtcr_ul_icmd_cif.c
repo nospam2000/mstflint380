@@ -37,7 +37,7 @@
 #include <string.h>
 
 #include <bit_slice.h>
-#include <common/tools_utils.h>
+#include "../common/tools_utils.h"
 #include "mtcr_icmd_cif.h"
 
 #ifdef __WIN__

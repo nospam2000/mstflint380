@@ -37,7 +37,7 @@
 #include <string.h>
 
 #include <bit_slice.h>
-#include <common/tools_utils.h>
+#include "../common/tools_utils.h"
 #include "mtcr_tools_cif.h"
 
 #define TOOLS_HCR_ADDR      0x80780
