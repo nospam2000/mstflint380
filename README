@@ -90,9 +90,10 @@ greatly improves the throughput for ip over infiniband, in my case from 3 to 12 
        > sudo apt-get install -y automake gettext libtool clang clang-tools g++ make zlib1g-dev libibmad-dev libibumad-dev libssl-dev
 	   
        Example: 
+       > ./autogen.sh
        > ./configure
        > make
-       > make install
+       > sudo make install
 
        - Run "configure --help" for custom configuration options.
        - Typically, root privileges are required to run "make install"
