@@ -3,6 +3,27 @@ Mellanox Technologies - www.mellanox.com
 
 MSTFLINT Package - Firmware Burning and Diagnostics Tools
 
+=== Disclaimer ===
+
+This is a pretty old version of the mstflint tools. They are only needed if you want to use a
+Mellanox (now Nvidia) ConnectX-2 Infiniband PCIe card.
+
+The newer ConnectX-3, 4, 5 cards shall use the official repo here: https://github.com/Mellanox/mstflint
+
+The support of ConnectX-2 was dropped in mstflint version 4.0.0, see this changelog:
+https://docs.nvidia.com/networking/display/mstflint4310/mstflint+release+notes+change+log+history
+
+Original source archives of mstflint and other infiniband tools can be found here:
+https://www.openfabrics.org/downloads/mstflint/
+
+This repo contains the original sources from
+https://www.openfabrics.org/downloads/mstflint/mstflint-3.8.0-1.27.gf3d39b6.tar.gz
+plus some changes needed to compile with modern compilers which are much more strict
+in error checking. There are no functional changes, only fixing compile errors.
+
+Tested with debian bookworm and trixie to flash new firmwares and do some diagnostics.
+
+
 1) Overview
     This package contains a burning tool and diagnostic tools for Mellanox
     manufactured HCA/NIC cards. It also provides access to the relevant source
