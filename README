@@ -24,37 +24,50 @@ in error checking. There are no functional changes, only fixing compile errors.
 Tested with debian bookworm and trixie to flash new firmwares and do some diagnostics.
 
 
-=== Documentation is outdated ===
+=== Most documentation is for proprietary Mellanox tools and is outdated ===
 
 To use the ConnectX-2 cards on debian bookworm and trixie no proprietary packages are needed.
-The information on many places is  outdated. The Linux kernel modules mlx4_* 
+You only need mstflint to update your firmware for running the communination no other tools
+or init scripts are needed.
+
+The information on many places in the internet is outdated and misleading as of 2025. The Linux kernel modules mlx4_* 
 and the other debian tools directly support the ConnectX-2 card.
 
 The following tools are needed on debian:
-  > sudo apt update
-  > sudo apt install -y rdma-core ibutils ibverbs-providers ibsim-utils infiniband-diags opensm ethtool iproute2 perftest
+
+```bash
+sudo apt update
+sudo apt install -y rdma-core ibutils ibverbs-providers ibsim-utils infiniband-diags opensm ethtool iproute2 perftest
+```
 
 Always use the PCIe address instead of any /dev/... device nodes, e.g.
 Get the PCI address:
-  > lspci -k -nn -d '15b3:*'
+
+```bash
+sudo apt update
+lspci -k -nn -d '15b3:*'
 0c:00.0 Network controller [0280]: Mellanox Technologies MT25408A0-FCC-QI ConnectX, Dual Port 40Gb/s InfiniBand / 10GigE Adapter IC with PCIe 2.0 x8 5.0GT/s Interface [15b3:673c] (rev b0)
+```
 
 Get some info:
-  > mstflint -d 0c:00.0 q full
-  > mstflint -d 0c:00.0 hw query
+
+```bash
+mstflint -d 0c:00.0 q full
+mstflint -d 0c:00.0 hw query
+```
 
 I'm using Network Manager (nmtui, nmcli) to manage the ip settings.
 When using infiniband mode, you should enable 'connected mode' which
 greatly improves the iperf3 throughput for ip over infiniband, in my case from 3 to 12 Gbit/s.
 
-Because the card only suppors PCIe Gen 2 a maximum of 30 GBit/s is possible.
+Because the card only suppors PCIe Gen 2 a maximum of 30 GBit/s is physically possible by the hardware.
 Using 'ib_write_bw' I can nearly reach the 30 GBit/s.
 
-Using the following parameters I can get near the physical maximum:
+Using the following parameters I can get 25.7 GBit/s using ìperf3`:
 
 ```bash
 echo >/etc/modprobe.d/ib_ipoib.conf "options ib_ipoib send_queue_size=8192 recv_queue_size=8192"
-rmmod  ib_ipoib ; sleep 3 && modprobe  ib_ipoib
+rmmod  ib_ipoib ; sleep 3 && modprobe ib_ipoib
 ```
 
 Check the current values:
