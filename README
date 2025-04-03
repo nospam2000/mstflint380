@@ -48,9 +48,21 @@ When using infiniband mode, you should enable 'connected mode' which
 greatly improves the iperf3 throughput for ip over infiniband, in my case from 3 to 12 Gbit/s.
 
 Because the card only suppors PCIe Gen 2 a maximum of 30 GBit/s is possible.
-Using 'ib_write_bw' I can nearly reach the 30 GBit/s. I'm still working
-on tuning the ip performance.
+Using 'ib_write_bw' I can nearly reach the 30 GBit/s.
 
+Using the following parameters I can get near the physical maximum:
+
+```bash
+echo >/etc/modprobe.d/ib_ipoib.conf "options ib_ipoib send_queue_size=8192 recv_queue_size=8192"
+rmmod  ib_ipoib ; sleep 3 && modprobe  ib_ipoib
+```
+
+Check the current values:
+
+```bash
+cat /sys/module/ib_ipoib/parameters/recv_queue_size
+cat /sys/module/ib_ipoib/parameters/send_queue_size
+```
 
 === Original information (excep debian package information)  =====================
 
