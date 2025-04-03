@@ -77,7 +77,7 @@ cat /sys/module/ib_ipoib/parameters/recv_queue_size
 cat /sys/module/ib_ipoib/parameters/send_queue_size
 ```
 
-=== Original information (excep debian package information)  =====================
+=== Information from original package (except debian package information)  =====
 
 1) Overview
     This package contains a burning tool and diagnostic tools for Mellanox
