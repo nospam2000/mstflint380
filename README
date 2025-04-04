@@ -63,7 +63,7 @@ greatly improves the iperf3 throughput for ip over infiniband, in my case from 3
 Because the card only suppors PCIe Gen 2 a maximum of 30 GBit/s is physically possible by the hardware.
 Using 'ib_write_bw' I can nearly reach the 30 GBit/s.
 
-Using the following parameters I can get 25.7 GBit/s using ìperf3`:
+The following parameters could be tuned, but it seems they even slow down the communication`:
 
 ```bash
 echo >/etc/modprobe.d/ib_ipoib.conf "options ib_ipoib send_queue_size=8192 recv_queue_size=8192"
